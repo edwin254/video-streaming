@@ -16,6 +16,9 @@ def video_generator():
 
         # Display the resulting frame
         cv2.imwrite('t.jpg', frame)
+        # frame_bytes = cv2.imencode('jpeg', frame)
+
+        # yield frame_bytes
 
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + open('t.jpg', 'rb').read() + b'\r\n')
